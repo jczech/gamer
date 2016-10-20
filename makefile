@@ -6,18 +6,18 @@ export FETK_LIBRARY := $(BUILD_DIR)/lib
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
-	export PYTHON := /opt/python3.5/bin/python3.5
+	export PYTHON := /usr/bin/python3.5
 	export LD_LIBRARY_PATH := $(BUILD_DIR)/lib:$(LD_LIBRARY_PATH)
-	LDFLAGS := "-L/opt/python3.5/lib/"
-	INSTALL_DIR := ~/.config/blender/2.77
-	PKG_DIR = ~/src/blender/blender-2.77a-linux-glibc211-x86_64/2.77/
+	LDFLAGS = "-L/usr/local/lib/"
+	INSTALL_DIR = ..
 else
 	export PYTHON := /usr/local/bin/python3.5
 	export DYLD_LIBRARY_PATH := $(BUILD_DIR)/lib:$(DYLD_LIBRARY_PATH)
 	LDFLAGS := -L/usr/local/Cellar/python3/3.5.2_3/Frameworks/Python.framework/Versions/3.5/lib
 	INSTALL_DIR := ../
-	PKG_DIR = ~/src/blender/blender-2.77a-linux-glibc211-x86_64/2.77/
 endif
+
+PKG_DIR = ~/src/blender/blender-2.77a-linux-glibc211-x86_64/2.77/
 
 export PYTHONPATH := $(BUILD_DIR)/lib/python3.5/site-packages:$(PYTHONPATH)
 
